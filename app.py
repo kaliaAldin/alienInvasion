@@ -5,7 +5,7 @@ def run_game():
     pygame.init()
     screen = pygame.display.set_mode((1200,800))
     pygame.display.set_caption("Alien Invasion")
-    bg_color = (255,0,0)
+    bg_color = (255,5,0)
 
     while True :
         for event in pygame.event.get():
