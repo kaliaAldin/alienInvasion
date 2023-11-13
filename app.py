@@ -2,6 +2,7 @@ import pygame
 import sys
 from setting import Settings
 from flight import  Flight
+from game_function import  check_events
 
 ai_setting = Settings()
 
@@ -13,12 +14,8 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     airplane = Flight(screen)
 
-
-
-    while True :
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+    while True:
+        check_events()
         screen.fill(ai_setting.bg_color)
         airplane.draw()
 
