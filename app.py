@@ -1,26 +1,26 @@
 import pygame
 import sys
 from setting import Settings
-from flight import  Flight
-from game_function import  check_events
+from flight import Flight
+import game_function as gf
 
 ai_setting = Settings()
 
+
 def run_game():
-    #initialising pygame
+    # initialising pygame
     pygame.init()
-    #setting a display
+    # setting a display
     screen = pygame.display.set_mode((ai_setting.screen_width, ai_setting.screen_height))
-    pygame.display.set_caption("Alien Invasion")
-    airplane = Flight(screen)
+    pygame.display.set_caption("Game for IOF")
+    airplane = Flight(ai_setting,screen)
 
     while True:
-        check_events()
-        screen.fill(ai_setting.bg_color)
-        airplane.draw()
+        gf.check_events(airplane)
+        airplane.update()
+        gf.update_screen(ai_setting,screen,airplane)
 
         pygame.display.flip()
-
 
 
 run_game()
